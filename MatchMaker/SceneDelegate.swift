@@ -11,6 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let phoneNumberController = PhoneNumberViewController()
         let navigationController = UINavigationController(rootViewController: phoneNumberController)
+        navigationController.styleMatchMaker()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
@@ -47,3 +48,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension UINavigationController {
+    func styleMatchMaker() {
+        navigationBar.tintColor = .accent
+        
+        let image: UIImage = .navigationBack
+        
+        navigationBar.backIndicatorImage = image
+        navigationBar.backIndicatorTransitionMaskImage = image
+        
+        navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+    }
+}

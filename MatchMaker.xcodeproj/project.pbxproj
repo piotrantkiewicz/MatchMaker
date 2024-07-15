@@ -12,6 +12,7 @@
 		AE05A8D12C3F235000018310 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05A8D02C3F235000018310 /* ViewController.swift */; };
 		AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D52C3F235100018310 /* Assets.xcassets */; };
 		AE05A8D92C3F235100018310 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D82C3F235100018310 /* Base */; };
+		AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */; };
 		AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */; };
 		AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D52C44722600AAE70A /* MatchMakerLogin */; };
 		AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D72C44742800AAE70A /* DesignSystem */; };
@@ -26,6 +27,7 @@
 		AE05A8D82C3F235100018310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE05A8DA2C3F235100018310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE05A8E02C3F294300018310 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
+		AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 		AEDEA5D12C44698F00AAE70A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */,
 				AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */,
 			);
 			path = Fonts;
@@ -162,6 +165,7 @@
 				AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */,
 				AE05A8D92C3F235100018310 /* Base in Resources */,
 				AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */,
+				AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
