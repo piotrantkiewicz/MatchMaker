@@ -161,6 +161,7 @@ extension PhoneNumberViewController {
         button.setTitle(PhoneNumberStrings.continueButton.rawValue, for: .normal)
         button.layer.cornerRadius = 14
         button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(didTapContinueBtn), for: .touchUpInside)
         
         view.addSubview(button)
 
@@ -175,5 +176,10 @@ extension PhoneNumberViewController {
         button.applyGradient(colours: [UIColor(resource: .accent), UIColor(resource: .backgroundPink)])
 
         self.continueBtn = button
+    }
+    
+    @objc func didTapContinueBtn() {
+        let otpVC = OTPViewController()
+        navigationController?.pushViewController(otpVC, animated: true)
     }
 }

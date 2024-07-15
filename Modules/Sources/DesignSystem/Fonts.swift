@@ -1,6 +1,7 @@
 import UIKit
 
 public enum Fonts: String {
+    case poppinsRegular = "Poppins-Regular"
     case poppinsBold = "Poppins-Bold"
     case avenirNextRegular = "AvenirNext-Regular"
     case avenirMedium = "AvenirNext-Medium"
@@ -23,4 +24,17 @@ public extension UIFont {
     static var button: UIFont {
         UIFont(name: Fonts.avenirBlack.rawValue, size: 20)!
     }
+    
+    static var otp: UIFont {
+        UIFont(name: Fonts.avenirBlack.rawValue, size: 24)!
+    }
+    
+    static var codeLabel: UIFont {
+        UIFont(name: Fonts.poppinsRegular.rawValue, size: 16)!
+    }
+    
+    static var resendLabel: UIFont {
+        UIFont(name: Fonts.poppinsBold.rawValue, size: 16)!
+    }
+
 }
