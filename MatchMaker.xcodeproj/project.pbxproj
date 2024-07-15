@@ -10,9 +10,11 @@
 		AE05A8CD2C3F235000018310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05A8CC2C3F235000018310 /* AppDelegate.swift */; };
 		AE05A8CF2C3F235000018310 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05A8CE2C3F235000018310 /* SceneDelegate.swift */; };
 		AE05A8D12C3F235000018310 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05A8D02C3F235000018310 /* ViewController.swift */; };
-		AE05A8D42C3F235000018310 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D32C3F235000018310 /* Base */; };
 		AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D52C3F235100018310 /* Assets.xcassets */; };
 		AE05A8D92C3F235100018310 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D82C3F235100018310 /* Base */; };
+		AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */; };
+		AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D52C44722600AAE70A /* MatchMakerLogin */; };
+		AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D72C44742800AAE70A /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +22,11 @@
 		AE05A8CC2C3F235000018310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE05A8CE2C3F235000018310 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AE05A8D02C3F235000018310 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE05A8D32C3F235000018310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE05A8D52C3F235100018310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE05A8D82C3F235100018310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE05A8DA2C3F235100018310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE05A8E02C3F294300018310 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
+		AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */,
+				AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +48,7 @@
 				AE05A8E02C3F294300018310 /* Modules */,
 				AE05A8CB2C3F235000018310 /* MatchMaker */,
 				AE05A8CA2C3F235000018310 /* Products */,
+				AEDEA5D42C44722600AAE70A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +63,38 @@
 		AE05A8CB2C3F235000018310 /* MatchMaker */ = {
 			isa = PBXGroup;
 			children = (
+				AEDEA5D02C44698400AAE70A /* Resources */,
 				AE05A8CC2C3F235000018310 /* AppDelegate.swift */,
 				AE05A8CE2C3F235000018310 /* SceneDelegate.swift */,
 				AE05A8D02C3F235000018310 /* ViewController.swift */,
-				AE05A8D22C3F235000018310 /* Main.storyboard */,
 				AE05A8D52C3F235100018310 /* Assets.xcassets */,
 				AE05A8D72C3F235100018310 /* LaunchScreen.storyboard */,
 				AE05A8DA2C3F235100018310 /* Info.plist */,
 			);
 			path = MatchMaker;
+			sourceTree = "<group>";
+		};
+		AEDEA5D02C44698400AAE70A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AEDEA5D12C44698F00AAE70A /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AEDEA5D12C44698F00AAE70A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		AEDEA5D42C44722600AAE70A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +113,10 @@
 			dependencies = (
 			);
 			name = MatchMaker;
+			packageProductDependencies = (
+				AEDEA5D52C44722600AAE70A /* MatchMakerLogin */,
+				AEDEA5D72C44742800AAE70A /* DesignSystem */,
+			);
 			productName = MatchMaker;
 			productReference = AE05A8C92C3F235000018310 /* MatchMaker.app */;
 			productType = "com.apple.product-type.application";
@@ -129,7 +161,7 @@
 			files = (
 				AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */,
 				AE05A8D92C3F235100018310 /* Base in Resources */,
-				AE05A8D42C3F235000018310 /* Base in Resources */,
+				AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,14 +181,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE05A8D22C3F235000018310 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE05A8D32C3F235000018310 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE05A8D72C3F235100018310 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -299,7 +323,6 @@
 				INFOPLIST_FILE = MatchMaker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -327,7 +350,6 @@
 				INFOPLIST_FILE = MatchMaker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -365,6 +387,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AEDEA5D52C44722600AAE70A /* MatchMakerLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MatchMakerLogin;
+		};
+		AEDEA5D72C44742800AAE70A /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE05A8C12C3F235000018310 /* Project object */;
 }
