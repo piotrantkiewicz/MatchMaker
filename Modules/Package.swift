@@ -7,6 +7,7 @@ let package = Package(
         .library(
             name: "MatchMakerLogin",
             targets: ["MatchMakerLogin"]),
+        .library(name: "DesignSystem", targets: ["DesignSystem"])
     ],
     dependencies: [
         .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.7.0"),
@@ -17,8 +18,13 @@ let package = Package(
             name: "MatchMakerLogin",
             dependencies: [
                 "SnapKit",
-                "PhoneNumberKit"
+                "PhoneNumberKit",
+                "DesignSystem"
+            ],
+            resources: [
+                .process("Resources")
             ]
         ),
+        .target(name: "DesignSystem")
     ]
 )
