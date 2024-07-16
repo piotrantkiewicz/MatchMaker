@@ -3,7 +3,6 @@ import PhoneNumberKit
 import SnapKit
 import DesignSystem
 
-
 enum OTPStrings: String {
     case title = "Enter the 6 digit code."
     case subtitle = "Enter the 6 digit code sent to your device to verify your account."
@@ -12,13 +11,13 @@ enum OTPStrings: String {
     case resendLabel = "Resend"
 }
 
-
 public class OTPViewController: UIViewController {
     
     private weak var stackView: UIStackView!
     private weak var continueBtn: UIButton!
-    
     private var textFields: [UITextField] = []
+    
+    var viewModel: OTPViewModel!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,6 +215,7 @@ extension OTPViewController {
         button.setTitle(OTPStrings.continueButton.rawValue, for: .normal)
         button.layer.cornerRadius = 14
         button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
         
         view.addSubview(button)
 
@@ -257,7 +257,35 @@ extension OTPViewController {
     }
 }
 
-
-
-
-
+extension OTPViewController {
+    
+    private func setContinueBtnDisabled() {
+        continueBtn.alpha = 0.5
+        continueBtn.isEnabled = false
+    }
+    
+    private func setContinueBtnEnabled() {
+        continueBtn.alpha = 1.0
+        continueBtn.isEnabled = true
+    }
+    
+    @objc func didTapContinue() {
+        view.endEditing(true)
+        self.setContinueBtnDisabled()
+        
+        let digits = textFields.map { $0.text ?? "" }
+        
+        Task { [weak self] in
+            do {
+                try await self?.viewModel.verifyOTP(with: digits)
+                
+                let vc = UIViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true)
+            } catch {
+                self?.showError(error.localizedDescription)
+                self?.setContinueBtnEnabled()
+            }
+        }
+    }
+}
