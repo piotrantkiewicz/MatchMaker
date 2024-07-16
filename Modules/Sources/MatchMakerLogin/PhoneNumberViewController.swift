@@ -2,6 +2,7 @@ import UIKit
 import PhoneNumberKit
 import SnapKit
 import DesignSystem
+import MatchMakerAuth
 
 enum PhoneNumberStrings: String {
     case title = "Can I get those digits?"
@@ -9,10 +10,25 @@ enum PhoneNumberStrings: String {
     case continueButton = "Continue"
 }
 
+public final class PhoneNumberViewModel {
+    var authService: AuthService
+    
+    public init(authService: AuthService) {
+        self.authService = authService
+    }
+    
+    public func requestOTP(with phoneNumber: String) async throws{
+        try await authService.requestOTP(forPhoneNumber: phoneNumber)
+    }
+}
+
 public class PhoneNumberViewController: UIViewController {
     
     private weak var stackView: UIStackView!
+    private weak var textField: PhoneNumberTextField!
     private weak var continueBtn: UIButton!
+    
+    public var viewModel: PhoneNumberViewModel!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,6 +168,8 @@ extension PhoneNumberViewController {
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
         }
+        
+        self.textField = textField
     }
     
     private func setupContinueButton() {
@@ -161,7 +179,7 @@ extension PhoneNumberViewController {
         button.setTitle(PhoneNumberStrings.continueButton.rawValue, for: .normal)
         button.layer.cornerRadius = 14
         button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(didTapContinueBtn), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapContinue), for: .touchUpInside)
         
         view.addSubview(button)
 
@@ -177,9 +195,38 @@ extension PhoneNumberViewController {
 
         self.continueBtn = button
     }
+}
+
+extension PhoneNumberViewController {
     
-    @objc func didTapContinueBtn() {
-        let otpVC = OTPViewController()
-        navigationController?.pushViewController(otpVC, animated: true)
+    @objc func didTapContinue() {
+        
+        guard
+            textField.isValidNumber,
+            let phoneNumber = textField.text else { return }
+        
+        Task { [weak self] in
+            do {
+                try await self?.viewModel.requestOTP(with: phoneNumber)
+                
+                self?.presentOTP()
+            } catch {
+                self?.showError(error.localizedDescription)
+            }
+        }
+    }
+
+    private func presentOTP() {
+        let viewController = OTPViewController()
+        viewController.viewModel = OTPViewModel(authService: viewModel.authService)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension UIViewController {
+    func showError(_ error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
     }
 }

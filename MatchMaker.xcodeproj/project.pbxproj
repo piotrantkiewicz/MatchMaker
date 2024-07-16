@@ -13,6 +13,9 @@
 		AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D52C3F235100018310 /* Assets.xcassets */; };
 		AE05A8D92C3F235100018310 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D82C3F235100018310 /* Base */; };
 		AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */; };
+		AEA428E42C45EBD400FA5165 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEA428E32C45EBD400FA5165 /* GoogleService-Info.plist */; };
+		AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E62C45EC4E00FA5165 /* FirebaseAuth */; };
+		AEA428E92C45F52900FA5165 /* MatchMakerAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E82C45F52900FA5165 /* MatchMakerAuth */; };
 		AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */; };
 		AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D52C44722600AAE70A /* MatchMakerLogin */; };
 		AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D72C44742800AAE70A /* DesignSystem */; };
@@ -28,6 +31,7 @@
 		AE05A8DA2C3F235100018310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE05A8E02C3F294300018310 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		AEA428E32C45EBD400FA5165 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +41,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */,
+				AEA428E92C45F52900FA5165 /* MatchMakerAuth in Frameworks */,
+				AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */,
 				AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +77,7 @@
 				AE05A8D02C3F235000018310 /* ViewController.swift */,
 				AE05A8D52C3F235100018310 /* Assets.xcassets */,
 				AE05A8D72C3F235100018310 /* LaunchScreen.storyboard */,
+				AEA428E32C45EBD400FA5165 /* GoogleService-Info.plist */,
 				AE05A8DA2C3F235100018310 /* Info.plist */,
 			);
 			path = MatchMaker;
@@ -119,6 +126,8 @@
 			packageProductDependencies = (
 				AEDEA5D52C44722600AAE70A /* MatchMakerLogin */,
 				AEDEA5D72C44742800AAE70A /* DesignSystem */,
+				AEA428E62C45EC4E00FA5165 /* FirebaseAuth */,
+				AEA428E82C45F52900FA5165 /* MatchMakerAuth */,
 			);
 			productName = MatchMaker;
 			productReference = AE05A8C92C3F235000018310 /* MatchMaker.app */;
@@ -148,6 +157,9 @@
 				Base,
 			);
 			mainGroup = AE05A8C02C3F235000018310;
+			packageReferences = (
+				AEA428E52C45EC4E00FA5165 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AE05A8CA2C3F235000018310 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -164,6 +176,7 @@
 			files = (
 				AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */,
 				AE05A8D92C3F235100018310 /* Base in Resources */,
+				AEA428E42C45EBD400FA5165 /* GoogleService-Info.plist in Resources */,
 				AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */,
 				AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */,
 			);
@@ -392,7 +405,27 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		AEA428E52C45EC4E00FA5165 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		AEA428E62C45EC4E00FA5165 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEA428E52C45EC4E00FA5165 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AEA428E82C45F52900FA5165 /* MatchMakerAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MatchMakerAuth;
+		};
 		AEDEA5D52C44722600AAE70A /* MatchMakerLogin */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MatchMakerLogin;
