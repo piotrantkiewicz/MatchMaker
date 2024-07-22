@@ -4,6 +4,8 @@ public enum Fonts: String {
     case poppinsRegular = "Poppins-Regular"
     case poppinsBold = "Poppins-Bold"
     case avenirNextRegular = "AvenirNext-Regular"
+    case avenirNextDemiBold = "AvenirNext-DemiBold"
+    case avenirNextBold = "AvenirNext-Bold"
     case avenirMedium = "AvenirNext-Medium"
     case avenirBlack = "Avenir-Black"
 }
@@ -15,6 +17,14 @@ public extension UIFont {
     
     static var subtitle: UIFont {
         UIFont(name: Fonts.avenirNextRegular.rawValue, size: 18)!
+    }
+    
+    static var title2: UIFont {
+        UIFont(name: Fonts.avenirNextDemiBold.rawValue, size: 20)!
+    }
+    
+    static var subtitle2: UIFont {
+        UIFont(name: Fonts.avenirNextRegular.rawValue, size: 15)!
     }
     
     static var textField: UIFont {
@@ -36,5 +46,8 @@ public extension UIFont {
     static var resendLabel: UIFont {
         UIFont(name: Fonts.poppinsBold.rawValue, size: 16)!
     }
-
+    
+    static var navigationTitle: UIFont {
+        UIFont(name: Fonts.avenirNextBold.rawValue, size: 25)!
+    }
 }

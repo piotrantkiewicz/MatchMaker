@@ -5,13 +5,19 @@ let package = Package(
     name: "Modules",
     platforms: [.iOS(.v17)],
     products: [
+        .library(name: "DesignSystem", targets: ["DesignSystem"]),
         .library(
             name: "MatchMakerAuth",
             targets: ["MatchMakerAuth"]),
         .library(
+            name: "MatchMakerCore",
+            targets: ["MatchMakerCore"]),
+        .library(
             name: "MatchMakerLogin",
             targets: ["MatchMakerLogin"]),
-        .library(name: "DesignSystem", targets: ["DesignSystem"])
+        .library(
+            name: "MatchMakerSettings",
+            targets: ["MatchMakerSettings"]),
     ],
     dependencies: [
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.29.0"),
@@ -29,12 +35,25 @@ let package = Package(
                 )
             ]
         ),
+        .target(name: "MatchMakerCore"),
         .target(
             name: "MatchMakerLogin",
             dependencies: [
                 "DesignSystem",
                 "MatchMakerAuth",
+                "MatchMakerCore",
                 "PhoneNumberKit",
+                "SnapKit"
+            ],
+            resources: [
+                .process("Resources")
+            ]
+        ),
+        .target(
+            name: "MatchMakerSettings",
+            dependencies: [
+                "DesignSystem",
+                "MatchMakerCore",
                 "SnapKit"
             ],
             resources: [

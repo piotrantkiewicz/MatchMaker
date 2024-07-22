@@ -12,6 +12,8 @@
 		AE05A8D12C3F235000018310 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE05A8D02C3F235000018310 /* ViewController.swift */; };
 		AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D52C3F235100018310 /* Assets.xcassets */; };
 		AE05A8D92C3F235100018310 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D82C3F235100018310 /* Base */; };
+		AE58426D2C4EB4D0004BEFCA /* MatchMakerCore in Frameworks */ = {isa = PBXBuildFile; productRef = AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */; };
+		AE58426F2C4EB4D5004BEFCA /* MatchMakerSettings in Frameworks */ = {isa = PBXBuildFile; productRef = AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */; };
 		AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */; };
 		AEA428E42C45EBD400FA5165 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEA428E32C45EBD400FA5165 /* GoogleService-Info.plist */; };
 		AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E62C45EC4E00FA5165 /* FirebaseAuth */; };
@@ -19,6 +21,8 @@
 		AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */; };
 		AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D52C44722600AAE70A /* MatchMakerLogin */; };
 		AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D72C44742800AAE70A /* DesignSystem */; };
+		AEE859642C4D638900674466 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE859632C4D638900674466 /* TabBarController.swift */; };
+		AEE859662C4D647E00674466 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE859652C4D647E00674466 /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,8 @@
 		AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		AEA428E32C45EBD400FA5165 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		AEE859632C4D638900674466 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AEE859652C4D647E00674466 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +48,9 @@
 			files = (
 				AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */,
 				AEA428E92C45F52900FA5165 /* MatchMakerAuth in Frameworks */,
+				AE58426D2C4EB4D0004BEFCA /* MatchMakerCore in Frameworks */,
 				AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */,
+				AE58426F2C4EB4D5004BEFCA /* MatchMakerSettings in Frameworks */,
 				AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +79,7 @@
 		AE05A8CB2C3F235000018310 /* MatchMaker */ = {
 			isa = PBXGroup;
 			children = (
+				AEE859672C4D648600674466 /* Tab */,
 				AEDEA5D02C44698400AAE70A /* Resources */,
 				AE05A8CC2C3F235000018310 /* AppDelegate.swift */,
 				AE05A8CE2C3F235000018310 /* SceneDelegate.swift */,
@@ -107,6 +116,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AEE859672C4D648600674466 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				AEE859632C4D638900674466 /* TabBarController.swift */,
+				AEE859652C4D647E00674466 /* Tab.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +146,8 @@
 				AEDEA5D72C44742800AAE70A /* DesignSystem */,
 				AEA428E62C45EC4E00FA5165 /* FirebaseAuth */,
 				AEA428E82C45F52900FA5165 /* MatchMakerAuth */,
+				AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */,
+				AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */,
 			);
 			productName = MatchMaker;
 			productReference = AE05A8C92C3F235000018310 /* MatchMaker.app */;
@@ -190,6 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE05A8D12C3F235000018310 /* ViewController.swift in Sources */,
+				AEE859642C4D638900674466 /* TabBarController.swift in Sources */,
+				AEE859662C4D647E00674466 /* Tab.swift in Sources */,
 				AE05A8CD2C3F235000018310 /* AppDelegate.swift in Sources */,
 				AE05A8CF2C3F235000018310 /* SceneDelegate.swift in Sources */,
 			);
@@ -417,6 +439,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MatchMakerCore;
+		};
+		AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MatchMakerSettings;
+		};
 		AEA428E62C45EC4E00FA5165 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AEA428E52C45EC4E00FA5165 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

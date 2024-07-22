@@ -2,6 +2,7 @@ import UIKit
 import PhoneNumberKit
 import SnapKit
 import DesignSystem
+import MatchMakerCore
 
 enum OTPStrings: String {
     case title = "Enter the 6 digit code."
@@ -279,13 +280,15 @@ extension OTPViewController {
             do {
                 try await self?.viewModel.verifyOTP(with: digits)
                 
-                let vc = UIViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self?.present(vc, animated: true)
+                self?.didLoginSuccessfully()
             } catch {
                 self?.showError(error.localizedDescription)
                 self?.setContinueBtnEnabled()
             }
         }
+    }
+    
+    private func didLoginSuccessfully() {
+        NotificationCenter.default.post(.didLoginSuccessfully)
     }
 }

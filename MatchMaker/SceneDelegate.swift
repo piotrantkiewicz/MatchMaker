@@ -1,5 +1,6 @@
 import UIKit
 import MatchMakerAuth
+import MatchMakerCore
 import MatchMakerLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -11,15 +12,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let authService = AuthServiceLive()
-        let viewModel = PhoneNumberViewModel(authService: authService)
-        let phoneNumberController = PhoneNumberViewController()
-        phoneNumberController.viewModel = viewModel
-        let navigationController = UINavigationController(rootViewController: phoneNumberController)
+        let navigationController = UINavigationController(
+            rootViewController: setupInitialViewController()
+        )
+
         navigationController.styleMatchMaker()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
+        
+        subscribeToLogin()
+    }
+    
+    private func setupInitialViewController() -> UIViewController {
+        let authService = AuthServiceLive()
+        
+        return authService.isAuthenticated ? setUpTabBar() : setupPhoneNumberController()
+    }
+    
+    private func setUpTabBar() -> UIViewController {
+        TabBarController()
+    }
+    
+    private func setupPhoneNumberController() -> UIViewController {
+        let authService = AuthServiceLive()
+        let phoneNumberController = PhoneNumberViewController()
+        phoneNumberController.viewModel = PhoneNumberViewModel(authService: authService)
+        return phoneNumberController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -53,15 +72,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
-extension UINavigationController {
-    func styleMatchMaker() {
-        navigationBar.tintColor = .accent
-        
-        let image: UIImage = .navigationBack
-        
-        navigationBar.backIndicatorImage = image
-        navigationBar.backIndicatorTransitionMaskImage = image
-        
-        navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+extension SceneDelegate {
+    private func subscribeToLogin() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didLoginSuccessfully),
+            name: Notification.Name(AppNotification.didLoginSuccessfully.rawValue),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func didLoginSuccessfully() {
+        let navigationController = window?.rootViewController as? UINavigationController
+        navigationController?.setViewControllers([setUpTabBar()], animated: true)
     }
 }
