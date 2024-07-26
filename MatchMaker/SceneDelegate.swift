@@ -1,4 +1,7 @@
 import UIKit
+import MatchMakerAuth
+import MatchMakerCore
+import MatchMakerLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -6,10 +9,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        
+        let navigationController = UINavigationController(
+            rootViewController: setupInitialViewController()
+        )
+
+        navigationController.styleMatchMaker()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        subscribeToLogin()
+    }
+    
+    private func setupInitialViewController() -> UIViewController {
+        let authService = AuthServiceLive()
+        
+        return authService.isAuthenticated ? setUpTabBar() : setupPhoneNumberController()
+    }
+    
+    private func setUpTabBar() -> UIViewController {
+        TabBarController()
+    }
+    
+    private func setupPhoneNumberController() -> UIViewController {
+        let authService = AuthServiceLive()
+        let phoneNumberController = PhoneNumberViewController()
+        phoneNumberController.viewModel = PhoneNumberViewModel(authService: authService)
+        return phoneNumberController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -43,3 +72,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    private func subscribeToLogin() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didLoginSuccessfully),
+            name: Notification.Name(AppNotification.didLoginSuccessfully.rawValue),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func didLoginSuccessfully() {
+        let navigationController = window?.rootViewController as? UINavigationController
+        navigationController?.setViewControllers([setUpTabBar()], animated: true)
+    }
+}
