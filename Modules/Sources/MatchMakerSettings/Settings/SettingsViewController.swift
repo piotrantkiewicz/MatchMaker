@@ -25,6 +25,8 @@ public final class SettingsViewController: UIViewController {
 extension SettingsViewController {
     
     private func setupUI() {
+        view.backgroundColor = .white
+        
         setupNaviationBar()
         
         setupTableView()
@@ -33,6 +35,7 @@ extension SettingsViewController {
     private func setupNaviationBar() {
         setupNavigationTitle()
         setupEditBarButton()
+        setupNavigationButton()
     }
     
     private func setupNavigationTitle() {
@@ -49,7 +52,19 @@ extension SettingsViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    @objc private func rightBarButtonTapped() {}
+    private func setupNavigationButton() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+    }
+    
+    @objc private func rightBarButtonTapped() {
+        presentProfile()
+    }
+    
+    private func presentProfile() {
+        let controller = ProfileViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     private func setupTableView() {
         let tableView = UITableView()
@@ -114,5 +129,9 @@ extension SettingsViewController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         tableView.frame.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom - 108
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentProfile()
     }
 }

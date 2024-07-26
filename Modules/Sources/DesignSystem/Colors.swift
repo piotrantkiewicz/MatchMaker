@@ -16,4 +16,12 @@ public extension UIColor {
     static var subtitleGray: UIColor {
         UIColor(resource: .subtitleGray)
     }
+    
+    static var pinkShadow: UIColor {
+        UIColor(resource: .pinkShadow)
+    }
+    
+    static var grayShadow: UIColor {
+        UIColor(resource: .grayShadow)
+    }
 }
