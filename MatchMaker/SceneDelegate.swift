@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootViewController: setupInitialViewController()
         )
 
-        navigationController.styleMatchMaker()
+        UINavigationController.styleMatchMaker()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window

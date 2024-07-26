@@ -31,8 +31,16 @@ public extension UIFont {
         UIFont(name: Fonts.avenirMedium.rawValue, size: 18)!
     }
     
+    static var textField2: UIFont {
+        UIFont(name: Fonts.avenirMedium.rawValue, size: 15)!
+    }
+    
     static var button: UIFont {
         UIFont(name: Fonts.avenirBlack.rawValue, size: 20)!
+    }
+    
+    static var button2: UIFont {
+        UIFont(name: Fonts.avenirNextBold.rawValue, size: 22)!
     }
     
     static var otp: UIFont {

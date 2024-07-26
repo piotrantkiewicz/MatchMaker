@@ -27,6 +27,8 @@ class SettingsHeaderCell: UITableViewCell {
     }
     
     private func commonInit() {
+        selectionStyle = .none
+        
         setupUI()
     }
 }
