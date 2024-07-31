@@ -1,13 +1,14 @@
 import UIKit
 import SnapKit
 import DesignSystem
+import MatchMakerCore
 
 public final class ProfileViewController: UIViewController {
     
     private weak var tableView: UITableView!
     private weak var saveButtonContainer: UIView!
     
-    let viewModel = ProfileViewModel()
+    var viewModel: ProfileViewModel!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,14 @@ extension ProfileViewController {
     
     @objc
     private func didTapSaveBtn() {
-        viewModel.save()
+        Task { [weak self] in
+            do {
+                try await viewModel.save()
+                self?.navigationController?.popViewController(animated: true)
+            } catch {
+                self?.showError(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -118,6 +126,10 @@ extension ProfileViewController: UITableViewDataSource {
             
             if let selectedImage = viewModel.selectedImage {
                 cell.configure(with: selectedImage)
+            }
+            
+            if let url = viewModel.profilePictureUrl {
+                cell.configure(with: url)
             }
             
             return cell

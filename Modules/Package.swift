@@ -22,7 +22,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.29.0"),
         .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.7.0"),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1"))
+        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1")),
+        .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.1.0"),
     ],
     targets: [
         .target(name: "DesignSystem"),
@@ -54,7 +55,11 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "MatchMakerCore",
-                "SnapKit"
+                "SnapKit",
+                "SDWebImage",
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseDatabase", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
             ],
             resources: [
                 .process("Resources")
