@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         
         subscribeToLogin()
+        subscribeToLogout()
     }
     
     private func setupInitialViewController() -> UIViewController {
@@ -86,5 +87,25 @@ extension SceneDelegate {
     private func didLoginSuccessfully() {
         let navigationController = window?.rootViewController as? UINavigationController
         navigationController?.setViewControllers([setUpTabBar()], animated: true)
+    }
+}
+
+extension SceneDelegate {
+    private func subscribeToLogout() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didLogout),
+            name: Notification.Name(AppNotification.didLogout.rawValue),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func didLogout() {
+        let navigationController = window?.rootViewController as? UINavigationController
+        navigationController?.setViewControllers(
+            [setupPhoneNumberController()],
+            animated: true
+        )
     }
 }

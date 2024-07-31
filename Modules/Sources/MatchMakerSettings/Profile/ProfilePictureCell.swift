@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import SDWebImage
 
 class ProfilePictureCell: UITableViewCell {
     
@@ -17,6 +18,10 @@ class ProfilePictureCell: UITableViewCell {
     
     func configure(with image: UIImage) {
         profileImageView.image = image
+    }
+    
+    func configure(with url: URL) {
+        profileImageView?.sd_setImage(with: url)
     }
     
     private func commonInit() {
