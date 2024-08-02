@@ -72,8 +72,7 @@ extension SettingsViewController {
     private func presentProfile() {
         let controller = ProfileViewController()
         controller.viewModel = ProfileViewModel(
-            userProfileRepository: viewModel.userProfileRepository,
-            profilePictureRepository: viewModel.profilePictureRepository
+            container: viewModel.container
         )
         controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)

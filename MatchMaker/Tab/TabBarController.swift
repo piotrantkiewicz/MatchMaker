@@ -2,8 +2,20 @@ import UIKit
 import DesignSystem
 import MatchMakerAuth
 import MatchMakerSettings
+import Swinject
 
 class TabBarController: UITabBarController {
+    
+    private let container: Container
+    
+    init(container: Container) {
+        self.container = container
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,16 +59,7 @@ class TabBarController: UITabBarController {
     
     private func setupSettings() -> UIViewController {
         let settings = SettingsViewController()
-        let authService = AuthServiceLive()
-        let profilePictureService = UserProfileRepositoryLive(authService: authService)
-        settings.viewModel = SettingsViewModel(
-            authService: authService,
-            userProfileRepository: profilePictureService,
-            profilePictureRepository: ProfilePictureRepositoryLive(
-                authService: authService,
-                userProfileRepository: profilePictureService
-            )
-        )
+        settings.viewModel = SettingsViewModel(container: container)
         let settingsNav = UINavigationController(rootViewController: settings)
         settings.tabBarItem = Tab.settings.tabBarItem
         
