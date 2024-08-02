@@ -1,5 +1,6 @@
 import UIKit
 import MatchMakerAuth
+import Swinject
 
 enum OTPViewModelError: Error {
     case otpNotValid
@@ -10,8 +11,8 @@ public final class OTPViewModel {
     
     private var authService: AuthService
     
-    init(authService: AuthService) {
-        self.authService = authService
+    init(container: Container) {
+        self.authService = container.resolve(AuthService.self)!
     }
     
     func verifyOTP(with digits: [String]) async throws {

@@ -1,5 +1,6 @@
 import UIKit
 import MatchMakerAuth
+import Swinject
 
 public final class SettingsViewModel {
     
@@ -13,18 +14,19 @@ public final class SettingsViewModel {
     
     var didUpdateHeader: (() -> ())?
     
-    let authService: AuthService
-    let userProfileRepository: UserProfileRepository
-    let profilePictureRepository: ProfilePictureRepository
+    private let authService: AuthService
+    private let userProfileRepository: UserProfileRepository
+    private let profilePictureRepository: ProfilePictureRepository
+    
+    let container: Container
     
     public init(
-        authService: AuthService,
-        userProfileRepository: UserProfileRepository,
-        profilePictureRepository: ProfilePictureRepository
+        container: Container
     ) {
-        self.authService = authService
-        self.userProfileRepository = userProfileRepository
-        self.profilePictureRepository = profilePictureRepository
+        self.container = container
+        self.authService = container.resolve(AuthService.self)!
+        self.userProfileRepository = container.resolve(UserProfileRepository.self)!
+        self.profilePictureRepository = container.resolve(ProfilePictureRepository.self)!
         
         self.header = Header(
             imageUrl: nil,

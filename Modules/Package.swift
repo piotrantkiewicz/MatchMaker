@@ -24,6 +24,7 @@ let package = Package(
         .package(url: "https://github.com/marmelroy/PhoneNumberKit", from: "3.7.0"),
         .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1")),
         .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.1.0"),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
     ],
     targets: [
         .target(name: "DesignSystem"),
@@ -44,7 +45,8 @@ let package = Package(
                 "MatchMakerAuth",
                 "MatchMakerCore",
                 "PhoneNumberKit",
-                "SnapKit"
+                "SnapKit",
+                "Swinject",
             ],
             resources: [
                 .process("Resources")
@@ -54,9 +56,11 @@ let package = Package(
             name: "MatchMakerSettings",
             dependencies: [
                 "DesignSystem",
+                "MatchMakerAuth",
                 "MatchMakerCore",
                 "SnapKit",
                 "SDWebImage",
+                "Swinject",
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseDatabase", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),

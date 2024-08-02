@@ -1,4 +1,5 @@
 import UIKit
+import Swinject
 
 enum TextFieldType {
     case name
@@ -18,16 +19,17 @@ public final class ProfileViewModel {
     
     var rows: [Row]
     
+    let container: Container
+    
     private let userProfileRepository: UserProfileRepository
     private let profilePictureRepository: ProfilePictureRepository
     
-    init(
-        userProfileRepository: UserProfileRepository,
-        profilePictureRepository: ProfilePictureRepository
+    public init(
+        container: Container
     ) {
-        
-        self.userProfileRepository = userProfileRepository
-        self.profilePictureRepository = profilePictureRepository
+        self.container = container
+        self.userProfileRepository = container.resolve(UserProfileRepository.self)!
+        self.profilePictureRepository = container.resolve(ProfilePictureRepository.self)!
         
         if let profile = userProfileRepository.profile {
             fullName = profile.fullName

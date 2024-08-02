@@ -3,6 +3,7 @@ import PhoneNumberKit
 import SnapKit
 import DesignSystem
 import MatchMakerAuth
+import Swinject
 
 enum PhoneNumberStrings: String {
     case title = "Can I get those digits?"
@@ -11,10 +12,13 @@ enum PhoneNumberStrings: String {
 }
 
 public final class PhoneNumberViewModel {
-    var authService: AuthService
+    var container: Container
+    var authService: AuthService {
+        container.resolve(AuthService.self)!
+    }
     
-    public init(authService: AuthService) {
-        self.authService = authService
+    public init(container: Container) {
+        self.container = container
     }
     
     public func requestOTP(with phoneNumber: String) async throws{
@@ -218,7 +222,7 @@ extension PhoneNumberViewController {
 
     private func presentOTP() {
         let viewController = OTPViewController()
-        viewController.viewModel = OTPViewModel(authService: viewModel.authService)
+        viewController.viewModel = OTPViewModel(container: viewModel.container)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

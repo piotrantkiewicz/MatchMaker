@@ -13,6 +13,9 @@
 		AE05A8D62C3F235100018310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D52C3F235100018310 /* Assets.xcassets */; };
 		AE05A8D92C3F235100018310 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AE05A8D82C3F235100018310 /* Base */; };
 		AE13747A2C5A41B8002E65E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE1374792C5A41B8002E65E6 /* GoogleService-Info.plist */; };
+		AE13F77A2C5CF7250001088B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = AE13F7792C5CF7250001088B /* Swinject */; };
+		AE13F77C2C5CF7250001088B /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AE13F77B2C5CF7250001088B /* Swinject-Dynamic */; };
+		AE13F77E2C5CF73E0001088B /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13F77D2C5CF73E0001088B /* AppAssembly.swift */; };
 		AE58426D2C4EB4D0004BEFCA /* MatchMakerCore in Frameworks */ = {isa = PBXBuildFile; productRef = AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */; };
 		AE58426F2C4EB4D5004BEFCA /* MatchMakerSettings in Frameworks */ = {isa = PBXBuildFile; productRef = AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */; };
 		AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */; };
@@ -35,6 +38,7 @@
 		AE05A8DA2C3F235100018310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE05A8E02C3F294300018310 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		AE1374792C5A41B8002E65E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AE13F77D2C5CF73E0001088B /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		AEE859632C4D638900674466 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -47,7 +51,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */,
+				AE13F77C2C5CF7250001088B /* Swinject-Dynamic in Frameworks */,
 				AEA428E92C45F52900FA5165 /* MatchMakerAuth in Frameworks */,
+				AE13F77A2C5CF7250001088B /* Swinject in Frameworks */,
 				AE58426D2C4EB4D0004BEFCA /* MatchMakerCore in Frameworks */,
 				AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */,
 				AE58426F2C4EB4D5004BEFCA /* MatchMakerSettings in Frameworks */,
@@ -86,6 +92,7 @@
 				AE1374792C5A41B8002E65E6 /* GoogleService-Info.plist */,
 				AE05A8D02C3F235000018310 /* ViewController.swift */,
 				AE05A8D52C3F235100018310 /* Assets.xcassets */,
+				AE13F77D2C5CF73E0001088B /* AppAssembly.swift */,
 				AE05A8D72C3F235100018310 /* LaunchScreen.storyboard */,
 				AE05A8DA2C3F235100018310 /* Info.plist */,
 			);
@@ -148,6 +155,8 @@
 				AEA428E82C45F52900FA5165 /* MatchMakerAuth */,
 				AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */,
 				AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */,
+				AE13F7792C5CF7250001088B /* Swinject */,
+				AE13F77B2C5CF7250001088B /* Swinject-Dynamic */,
 			);
 			productName = MatchMaker;
 			productReference = AE05A8C92C3F235000018310 /* MatchMaker.app */;
@@ -179,6 +188,7 @@
 			mainGroup = AE05A8C02C3F235000018310;
 			packageReferences = (
 				AEA428E52C45EC4E00FA5165 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				AE13F7782C5CF7250001088B /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = AE05A8CA2C3F235000018310 /* Products */;
 			projectDirPath = "";
@@ -212,6 +222,7 @@
 				AE05A8D12C3F235000018310 /* ViewController.swift in Sources */,
 				AEE859642C4D638900674466 /* TabBarController.swift in Sources */,
 				AEE859662C4D647E00674466 /* Tab.swift in Sources */,
+				AE13F77E2C5CF73E0001088B /* AppAssembly.swift in Sources */,
 				AE05A8CD2C3F235000018310 /* AppDelegate.swift in Sources */,
 				AE05A8CF2C3F235000018310 /* SceneDelegate.swift in Sources */,
 			);
@@ -428,6 +439,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE13F7782C5CF7250001088B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 		AEA428E52C45EC4E00FA5165 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -439,6 +458,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE13F7792C5CF7250001088B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE13F7782C5CF7250001088B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		AE13F77B2C5CF7250001088B /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE13F7782C5CF7250001088B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
 		AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MatchMakerCore;
