@@ -102,8 +102,7 @@ extension ProfileViewController {
     private func didTapSaveBtn() {
         Task { [weak self] in
             do {
-                try await viewModel.save()
-                self?.navigationController?.popViewController(animated: true)
+                try await self?.viewModel.save()
             } catch {
                 self?.showError(error.localizedDescription)
             }

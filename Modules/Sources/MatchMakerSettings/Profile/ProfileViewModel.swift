@@ -23,13 +23,16 @@ public final class ProfileViewModel {
     
     private let userProfileRepository: UserProfileRepository
     private let profilePictureRepository: ProfilePictureRepository
+    private let coordinator: ProfileCoordinator
     
     public init(
-        container: Container
+        container: Container,
+        coordinator: ProfileCoordinator
     ) {
         self.container = container
         self.userProfileRepository = container.resolve(UserProfileRepository.self)!
         self.profilePictureRepository = container.resolve(ProfilePictureRepository.self)!
+        self.coordinator = coordinator
         
         if let profile = userProfileRepository.profile {
             fullName = profile.fullName
@@ -48,9 +51,12 @@ public final class ProfileViewModel {
         let profile = UserProfile(fullName: fullName, location: location, profilePictureUr: nil)
         try userProfileRepository.saveUserProfile(profile)
         
-        guard let selectedImage else { return }
-        
-        try await profilePictureRepository.upload(selectedImage)
+        if let selectedImage {
+            try await profilePictureRepository.upload(selectedImage)
+        }
+        await MainActor.run {
+            coordinator.dismiss()            
+        }
     }
     
     func modelForTextFieldRow(_ type: TextFieldType) -> ProfileTextFieldCell.Model {
