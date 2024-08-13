@@ -19,11 +19,14 @@ public final class SettingsViewModel {
     private let profilePictureRepository: ProfilePictureRepository
     
     let container: Container
+    let coordinator: SettingsCoordinator
     
     public init(
-        container: Container
+        container: Container,
+        coordinator: SettingsCoordinator
     ) {
         self.container = container
+        self.coordinator = coordinator
         self.authService = container.resolve(AuthService.self)!
         self.userProfileRepository = container.resolve(UserProfileRepository.self)!
         self.profilePictureRepository = container.resolve(ProfilePictureRepository.self)!
@@ -38,6 +41,10 @@ public final class SettingsViewModel {
     func logout() throws {
         try authService.logout()
         NotificationCenter.default.post(.didLogout)
+    }
+    
+    func presentProfileEdit() {
+        coordinator.presentProfileEdit()
     }
     
     func fetchUserProfile() {

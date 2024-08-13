@@ -22,8 +22,11 @@ public final class OTPViewModel {
         }
         let otp = combineToOTP(digits: digits)
         
-        let user = try await authService.authenticate(with: otp)
-        print(user.uid)
+        let _ = try await authService.authenticate(with: otp)
+        
+        await MainActor.run {
+            NotificationCenter.default.post(.didLoginSuccessfully)
+        }
     }
     
     private func validate(digits: [String]) -> Bool {

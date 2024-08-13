@@ -18,6 +18,7 @@
 		AE13F77E2C5CF73E0001088B /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE13F77D2C5CF73E0001088B /* AppAssembly.swift */; };
 		AE58426D2C4EB4D0004BEFCA /* MatchMakerCore in Frameworks */ = {isa = PBXBuildFile; productRef = AE58426C2C4EB4D0004BEFCA /* MatchMakerCore */; };
 		AE58426F2C4EB4D5004BEFCA /* MatchMakerSettings in Frameworks */ = {isa = PBXBuildFile; productRef = AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */; };
+		AE8D71F62C6B736600C98F4C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D71F52C6B736600C98F4C /* AppCoordinator.swift */; };
 		AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */; };
 		AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E62C45EC4E00FA5165 /* FirebaseAuth */; };
 		AEA428E92C45F52900FA5165 /* MatchMakerAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E82C45F52900FA5165 /* MatchMakerAuth */; };
@@ -39,6 +40,7 @@
 		AE05A8E02C3F294300018310 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		AE1374792C5A41B8002E65E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE13F77D2C5CF73E0001088B /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
+		AE8D71F52C6B736600C98F4C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		AEE859632C4D638900674466 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				AEDEA5D02C44698400AAE70A /* Resources */,
 				AE05A8CC2C3F235000018310 /* AppDelegate.swift */,
 				AE05A8CE2C3F235000018310 /* SceneDelegate.swift */,
+				AE8D71F52C6B736600C98F4C /* AppCoordinator.swift */,
 				AE1374792C5A41B8002E65E6 /* GoogleService-Info.plist */,
 				AE05A8D02C3F235000018310 /* ViewController.swift */,
 				AE05A8D52C3F235100018310 /* Assets.xcassets */,
@@ -225,6 +228,7 @@
 				AE13F77E2C5CF73E0001088B /* AppAssembly.swift in Sources */,
 				AE05A8CD2C3F235000018310 /* AppDelegate.swift in Sources */,
 				AE05A8CF2C3F235000018310 /* SceneDelegate.swift in Sources */,
+				AE8D71F62C6B736600C98F4C /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

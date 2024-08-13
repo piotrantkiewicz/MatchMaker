@@ -66,16 +66,7 @@ extension SettingsViewController {
     }
     
     @objc private func rightBarButtonTapped() {
-        presentProfile()
-    }
-    
-    private func presentProfile() {
-        let controller = ProfileViewController()
-        controller.viewModel = ProfileViewModel(
-            container: viewModel.container
-        )
-        controller.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(controller, animated: true)
+        viewModel.presentProfileEdit()
     }
     
     private func setupTableView() {
@@ -158,6 +149,6 @@ extension SettingsViewController: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presentProfile()
+        viewModel.presentProfileEdit()
     }
 }

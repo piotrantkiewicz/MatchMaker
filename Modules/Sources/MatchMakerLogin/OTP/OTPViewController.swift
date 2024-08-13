@@ -279,16 +279,10 @@ extension OTPViewController {
         Task { [weak self] in
             do {
                 try await self?.viewModel.verifyOTP(with: digits)
-                
-                self?.didLoginSuccessfully()
             } catch {
                 self?.showError(error.localizedDescription)
                 self?.setContinueBtnEnabled()
             }
         }
-    }
-    
-    private func didLoginSuccessfully() {
-        NotificationCenter.default.post(.didLoginSuccessfully)
     }
 }
