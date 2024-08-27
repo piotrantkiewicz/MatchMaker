@@ -66,6 +66,10 @@ public extension UIFont {
     static var cardTitle: UIFont {
         UIFont(name: Fonts.avenirNextBold.rawValue, size: 30)!
     }
+    
+    static var cardDetailTitle: UIFont {
+        UIFont(name: Fonts.avenirNextDemiBold.rawValue, size: 22)!
+    }
 }
 
 

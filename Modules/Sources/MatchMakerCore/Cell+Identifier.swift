@@ -5,3 +5,9 @@ public extension UITableViewCell {
         String(describing: Self.self)
     }
 }
+
+public extension UICollectionViewCell {
+    static var identifier: String {
+        String(describing: Self.self)
+    }
+}
