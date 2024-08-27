@@ -48,7 +48,7 @@ public final class ProfileViewModel {
     }
     
     func save() async throws {
-        let profile = UserProfile(fullName: fullName, location: location, profilePictureUr: nil)
+        let profile = UserProfile(fullName: fullName, location: location, profilePictureUrl: nil)
         try userProfileRepository.saveUserProfile(profile)
         
         if let selectedImage {

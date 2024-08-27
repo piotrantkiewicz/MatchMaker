@@ -22,6 +22,7 @@
 		AEA428D92C45A0C800FA5165 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA428D82C45A0C800FA5165 /* Poppins-Regular.ttf */; };
 		AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E62C45EC4E00FA5165 /* FirebaseAuth */; };
 		AEA428E92C45F52900FA5165 /* MatchMakerAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEA428E82C45F52900FA5165 /* MatchMakerAuth */; };
+		AEC7CED32C7CE74300F0E5B6 /* MatchMakerDiscovery in Frameworks */ = {isa = PBXBuildFile; productRef = AEC7CED22C7CE74300F0E5B6 /* MatchMakerDiscovery */; };
 		AEDEA5D32C446A9E00AAE70A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDEA5D22C446A9E00AAE70A /* Poppins-Bold.ttf */; };
 		AEDEA5D62C44722600AAE70A /* MatchMakerLogin in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D52C44722600AAE70A /* MatchMakerLogin */; };
 		AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = AEDEA5D72C44742800AAE70A /* DesignSystem */; };
@@ -59,6 +60,7 @@
 				AE58426D2C4EB4D0004BEFCA /* MatchMakerCore in Frameworks */,
 				AEA428E72C45EC4E00FA5165 /* FirebaseAuth in Frameworks */,
 				AE58426F2C4EB4D5004BEFCA /* MatchMakerSettings in Frameworks */,
+				AEC7CED32C7CE74300F0E5B6 /* MatchMakerDiscovery in Frameworks */,
 				AEDEA5D82C44742800AAE70A /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +162,7 @@
 				AE58426E2C4EB4D5004BEFCA /* MatchMakerSettings */,
 				AE13F7792C5CF7250001088B /* Swinject */,
 				AE13F77B2C5CF7250001088B /* Swinject-Dynamic */,
+				AEC7CED22C7CE74300F0E5B6 /* MatchMakerDiscovery */,
 			);
 			productName = MatchMaker;
 			productReference = AE05A8C92C3F235000018310 /* MatchMaker.app */;
@@ -488,6 +491,10 @@
 		AEA428E82C45F52900FA5165 /* MatchMakerAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MatchMakerAuth;
+		};
+		AEC7CED22C7CE74300F0E5B6 /* MatchMakerDiscovery */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MatchMakerDiscovery;
 		};
 		AEDEA5D52C44722600AAE70A /* MatchMakerLogin */ = {
 			isa = XCSwiftPackageProductDependency;

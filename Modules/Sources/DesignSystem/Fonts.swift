@@ -58,4 +58,19 @@ public extension UIFont {
     static var navigationTitle: UIFont {
         UIFont(name: Fonts.avenirNextBold.rawValue, size: 25)!
     }
+    
+    static var navigationTitle2: UIFont {
+        UIFont(name: Fonts.avenirNextBold.rawValue, size: 30)!
+    }
+    
+    static var cardTitle: UIFont {
+        UIFont(name: Fonts.avenirNextBold.rawValue, size: 30)!
+    }
 }
+
+
+
+
+
+
+

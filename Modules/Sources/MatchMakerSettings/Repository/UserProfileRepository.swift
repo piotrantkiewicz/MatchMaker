@@ -10,11 +10,11 @@ public struct UserProfile: Codable {
     public init(
         fullName: String,
         location: String,
-        profilePictureUr: URL? = nil
+        profilePictureUrl: URL? = nil
     ) {
         self.fullName = fullName
         self.location = location
-        self.profilePictureUrl = profilePictureUr
+        self.profilePictureUrl = profilePictureUrl
     }
 }
 

@@ -13,6 +13,9 @@ let package = Package(
             name: "MatchMakerCore",
             targets: ["MatchMakerCore"]),
         .library(
+            name: "MatchMakerDiscovery",
+            targets: ["MatchMakerDiscovery"]),
+        .library(
             name: "MatchMakerLogin",
             targets: ["MatchMakerLogin"]),
         .library(
@@ -38,6 +41,15 @@ let package = Package(
             ]
         ),
         .target(name: "MatchMakerCore"),
+        .target(
+            name: "MatchMakerDiscovery",
+            dependencies: [
+                "DesignSystem",
+                "SDWebImage",
+                "SnapKit",
+                "Swinject",
+            ]
+        ),
         .target(
             name: "MatchMakerLogin",
             dependencies: [
