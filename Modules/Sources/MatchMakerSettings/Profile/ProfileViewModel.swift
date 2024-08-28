@@ -1,5 +1,6 @@
 import UIKit
 import Swinject
+import MatchMakerCore
 
 enum TextFieldType {
     case name

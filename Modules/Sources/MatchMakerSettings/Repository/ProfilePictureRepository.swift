@@ -16,7 +16,7 @@ public class ProfilePictureRepositoryLive: ProfilePictureRepository {
     private let reference: StorageReference
     private let authService: AuthService
     private let userProfileRepository: UserProfileRepository
-    private let profilePictureSize = CGSize(width: 256, height: 256)
+    private let profilePictureSize = CGSize(width: 512, height: 512)
     private var uploadtask: StorageUploadTask?
     
     public init(

@@ -45,9 +45,13 @@ let package = Package(
             name: "MatchMakerDiscovery",
             dependencies: [
                 "DesignSystem",
+                "MatchMakerAuth",
+                "MatchMakerCore",
                 "SDWebImage",
                 "SnapKit",
                 "Swinject",
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseDatabase", package: "firebase-ios-sdk"),
             ]
         ),
         .target(

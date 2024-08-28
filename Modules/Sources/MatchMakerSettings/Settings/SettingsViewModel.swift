@@ -1,5 +1,6 @@
 import UIKit
 import MatchMakerAuth
+import MatchMakerCore
 import Swinject
 
 public final class SettingsViewModel {

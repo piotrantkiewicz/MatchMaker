@@ -3,11 +3,14 @@ import Swinject
 
 public class DiscoveryViewModel {
     
+    private let repository: DiscoveryRepository
     var potentialMatches: [User] = []
     
-    init(container: Container) {}
+    init(container: Container) {
+        repository = container.resolve(DiscoveryRepository.self)!
+    }
     
     func fetchPotentialMatches() async throws {
-        potentialMatches = mockUsers
+        potentialMatches = try await repository.fetchPotentialMatches()
     }
 }

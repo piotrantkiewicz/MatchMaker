@@ -1,22 +1,7 @@
 import Foundation
+import MatchMakerCore
 import FirebaseDatabase
 import MatchMakerAuth
-
-public struct UserProfile: Codable {
-    public let fullName: String
-    public let location: String
-    public let profilePictureUrl: URL?
-    
-    public init(
-        fullName: String,
-        location: String,
-        profilePictureUrl: URL? = nil
-    ) {
-        self.fullName = fullName
-        self.location = location
-        self.profilePictureUrl = profilePictureUrl
-    }
-}
 
 public enum UserProfileRepositoryError: Error {
     case notAuthenticated
@@ -49,6 +34,7 @@ public class UserProfileRepositoryLive: UserProfileRepository {
     public init(authService: AuthService = AuthServiceLive()) {
         reference = Database.database().reference()
         self.authService = authService
+        subscribeToLogout()
     }
     
     public func saveUserProfile(_ userProfile: UserProfile) throws {
@@ -85,3 +71,27 @@ public class UserProfileRepositoryLive: UserProfileRepository {
         ])
     }
 }
+
+extension UserProfileRepositoryLive {
+    private func subscribeToLogout() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didLogout),
+            name: Notification.Name(AppNotification.didLogout.rawValue),
+            object: nil
+        )
+    }
+    
+    @objc
+    private func didLogout() {
+        profile = nil
+    }
+}
+
+
+
+
+
+
+
+
