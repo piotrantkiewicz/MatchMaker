@@ -133,9 +133,16 @@ public final class DiscoveryViewController: UIViewController {
             topCard.center = CGPoint(x: topCard.center.x + translationX, y: topCard.center.y)
             topCard.alpha = 0
         } completion: { _ in
-            self.cardStackView.removeTopCard()
+            self.didFinishSwipeAnimation(on: topCard, with: direction)
         }
-
+    }
+    
+    private func didFinishSwipeAnimation(on card: CardView, with direction: SwipeDirection) {
+        Task {
+            await self.viewModel.didSwipe(direction, on: card.user)
+        }
+        
+        self.cardStackView.removeTopCard()
     }
     
     private func resetCard(_ card: CardView) {

@@ -13,4 +13,23 @@ public class DiscoveryViewModel {
     func fetchPotentialMatches() async throws {
         potentialMatches = try await repository.fetchPotentialMatches()
     }
+    
+    func didSwipe(_ direction: SwipeDirection, on user: User) async {
+        do {
+            try await repository.swipe(with: direction, on: user)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

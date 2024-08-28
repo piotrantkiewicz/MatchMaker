@@ -6,7 +6,7 @@ class CardView: UIView {
     private let overlayView = UIView()
     private let nameLabel = UILabel()
     
-    private let user: User
+    let user: User
     
     init(user: User) {
         self.user = user

@@ -36,6 +36,10 @@ class AppAssembly {
         container.register(DiscoveryRepository.self) { _ in
             DiscoveryRepositoryLive(authService: authService)
         }
+        
+        container.register(MatchesRepository.self) { _ in
+            MatchesRepositoryLive(authService: authService)
+        }
     }
 }
 

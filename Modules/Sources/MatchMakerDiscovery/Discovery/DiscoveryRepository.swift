@@ -5,6 +5,7 @@ import MatchMakerCore
 
 public protocol DiscoveryRepository {
     func fetchPotentialMatches() async throws -> [User]
+    func swipe(with direction: SwipeDirection, on user: User) async throws
 }
 
 public class DiscoveryRepositoryLive: DiscoveryRepository {
@@ -57,6 +58,30 @@ public class DiscoveryRepositoryLive: DiscoveryRepository {
             return [:]
         }
         return swipes
+    }
+    
+    public func swipe(with direction: SwipeDirection, on user: User) async throws {
+        guard let currentUser = authService.user else {
+            throw AuthError.notAuthenticated
+        }
+        
+        try await database.child("swipes").child(currentUser.uid).child(user.uid).setValue(
+            direction == .right
+        )
+        
+        guard direction == .right else { return }
+        let otherUserSwipedRight = try await swipe(for: user.uid, on: currentUser.uid)
+        
+        guard otherUserSwipedRight else { return }
+        
+        try await database.child("matches").child(currentUser.uid).child(user.uid).setValue(true)
+        try await database.child("matches").child(user.uid).child(currentUser.uid).setValue(true)
+    }
+    
+    private func swipe(for user: String, on anotherUser: String) async throws -> Bool {
+        try await database.child("swipes").child(user).child(anotherUser)
+            .getData()
+            .value as? Bool ?? false
     }
 }
 
