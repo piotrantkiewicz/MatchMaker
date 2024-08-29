@@ -2,12 +2,12 @@ import UIKit
 import Swinject
 import MatchMakerCore
 
-enum TextFieldType {
+enum TextFieldType: Equatable {
     case name
     case location
 }
 
-enum Row {
+enum Row: Equatable {
     case profilePicture
     case textField(TextFieldType)
 }
@@ -48,6 +48,7 @@ public final class ProfileViewModel {
         ]
     }
     
+    
     func save() async throws {
         let profile = UserProfile(fullName: fullName, location: location, profilePictureUrl: nil)
         try userProfileRepository.saveUserProfile(profile)
@@ -56,7 +57,7 @@ public final class ProfileViewModel {
             try await profilePictureRepository.upload(selectedImage)
         }
         await MainActor.run {
-            coordinator.dismiss()            
+            coordinator.dismiss()
         }
     }
     

@@ -49,15 +49,17 @@ public class ProfilePictureRepositoryLive: ProfilePictureRepository {
         
         try userProfileRepository.saveProfilePictureUrl(url)
     }
-    
+
     private func uploadToFirebase(_ data: Data, reference: StorageReference) async throws -> StorageMetadata {
         
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<StorageMetadata, Error>) in
+        try await withCheckedThrowingContinuation { continuation in
             uploadtask = reference.putData(data) { metadata, error in
-                if let error {
+                if let error = error {
                     continuation.resume(throwing: error)
-                } else if let metadata {
+                } else if let metadata = metadata {
                     continuation.resume(returning: metadata)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "UploadError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred"]))
                 }
             }
         }
@@ -80,6 +82,9 @@ extension UIImage {
         let rect = CGRect(origin: .zero, size: newSize)
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        defer { UIGraphicsEndImageContext() }
+        
+        self.draw(in: rect)
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         

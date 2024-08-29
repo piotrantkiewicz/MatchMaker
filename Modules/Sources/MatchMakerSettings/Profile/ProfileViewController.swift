@@ -125,9 +125,7 @@ extension ProfileViewController: UITableViewDataSource {
             
             if let selectedImage = viewModel.selectedImage {
                 cell.configure(with: selectedImage)
-            }
-            
-            if let url = viewModel.profilePictureUrl {
+            } else if let url = viewModel.profilePictureUrl {
                 cell.configure(with: url)
             }
             
@@ -156,7 +154,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     private func didTapProfilePicture() {
         let alert = UIAlertController(title: "Select Option", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Galery", style: .default, handler: { [weak self] _ in
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { [weak self] _ in
             self?.showImagePicker(with: .photoLibrary)
         }))
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
@@ -183,9 +181,10 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         if let selectedImage = info[.originalImage] as? UIImage {
             viewModel.selectedImage = selectedImage
             
-            tableView.reloadRows(at: [
-                IndexPath(row: 0, section: 0)
-            ], with: .automatic)
+            if let index = viewModel.rows.firstIndex(of: .profilePicture) {
+                let indexPath = IndexPath(row: index, section: 0)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
         }
         picker.dismiss(animated: true)
     }
