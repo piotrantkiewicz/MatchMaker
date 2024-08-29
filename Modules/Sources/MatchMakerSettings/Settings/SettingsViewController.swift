@@ -5,6 +5,7 @@ import MatchMakerCore
 public final class SettingsViewController: UIViewController {
     
     private weak var tableView: UITableView!
+    private weak var logoutBtn: UIButton!
     
     public var viewModel: SettingsViewModel!
     
@@ -37,8 +38,8 @@ extension SettingsViewController {
         view.backgroundColor = .white
         
         setupNaviationBar()
-        
         setupTableView()
+        setupLogoutBtn()
     }
     
     private func setupNaviationBar() {
@@ -79,30 +80,41 @@ extension SettingsViewController {
         
         self.tableView = tableView
         tableView.contentInset = UIEdgeInsets(top: 28, left: 0, bottom: 0, right: 0)
-        
-        setupTableFooter()
+        tableView.isScrollEnabled = false
     }
     
-    private func setupTableFooter() {
-        let footerView = UIView()
-        footerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 100)
-        
-        let button = UIButton(type: .custom)
+    private func setupLogoutBtn() {
+        let button = UIButton()
+        button.titleLabel?.font = .logoutButton
+        button.layer.cornerRadius = 14
+        button.layer.masksToBounds = true
         button.setTitle("Logout", for: .normal)
         button.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
-        footerView.addSubview(button)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.accent.cgColor,
+            UIColor.backgroundPink.cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.frame = button.bounds
+        
+        button.layer.insertSublayer(gradientLayer, at: 0)
+        
+        view.addSubview(button)
         
         button.snp.makeConstraints { make in
             make.height.equalTo(58)
             make.width.equalTo(306)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-37)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-37)
         }
         
-        tableView.tableFooterView = footerView
+        logoutBtn = button
         
-        view.layoutIfNeeded()
-        button.styleMatchMaker()
+        button.layoutIfNeeded()
+        gradientLayer.frame = button.bounds
     }
     
     @objc
@@ -139,15 +151,6 @@ extension SettingsViewController: UITableViewDataSource {
 }
 
 extension SettingsViewController: UITableViewDelegate {
-    
-    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        tableView.tableFooterView
-    }
-
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        tableView.frame.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom - 108
-    }
-    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.presentProfileEdit()
     }

@@ -43,6 +43,10 @@ public extension UIFont {
         UIFont(name: Fonts.avenirNextBold.rawValue, size: 22)!
     }
     
+    static var logoutButton: UIFont {
+        UIFont(name: Fonts.avenirNextBold.rawValue, size: 20)!
+    }
+    
     static var otp: UIFont {
         UIFont(name: Fonts.avenirBlack.rawValue, size: 24)!
     }
